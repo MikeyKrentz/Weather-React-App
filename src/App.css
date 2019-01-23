@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  padding-top: 20%;
+}
+
+.film {
+  background-color: rgba(.5,.5,.5,0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.transparent {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-bottom: solid 2px gray;
+  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(204, 204, 204, 0);
+  color: white;
+  display: block;
+  margin: auto;
+  transition-duration: 0.5s;
+}
+
+.transparent:hover {
+  transition-duration: 0.3s;
+  border-bottom: solid 2px white;
+}
+
+.transparent:focus {
+  outline-width: 0;
+  border-bottom: solid 3px white;
+}
+
+.bg {
+  overflow: hidden;
+  background: url(https://source.unsplash.com/1920x1080/?=phoenix,boise) center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
