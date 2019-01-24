@@ -7,6 +7,17 @@ export class StateInput extends React.Component {
     changeState = this.changeState.bind(this);
     testEnter = this.testEnter.bind(this);
 
+    testEnter(event) {
+        if(event.charCode === 13) {
+            this.props.onInput(this.state.selectedState);
+            return;
+        }
+    }
+
+    changeState(event) {
+        this.setState({selectedState: event.target.value});
+    }
+
     render() {
         return (
             <div className="row">
@@ -23,16 +34,5 @@ export class StateInput extends React.Component {
                 </div>
             </div>
         )
-    }
-
-    testEnter(event) {
-        if(event.charCode === 13) {
-            this.props.onInput(this.state.selectedState);
-            return;
-        }
-    }
-
-    changeState(event) {
-        this.setState({selectedState: event.target.value});
     }
 };

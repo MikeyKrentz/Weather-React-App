@@ -4,28 +4,43 @@ import { StateInput } from './StateInput';
 
 export class CombiningTwo extends React.Component {
 
+    isLoading = false;
+
     state = { 
         chosenState: 'Boise',
-        weather: 'Sunny',
-        background: `url(https://source.unsplash.com/1920x1080/?=phoenix,boise) no-repeat fixed center` 
+        background: ''
     }
 
-    handleChosen = this.handleChosen.bind(this);
+    style = {
+        overflow: "hidden",
+        background: this.state.background,
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+    }
+
+    handleChosen = (value) => {
+        this.setState({chosenState: value});
+    }
 
     render() {
-        return (
-            <div>
-                <div className="film">
-                    <div className="center">
-                    <Weather state={this.state.chosenState} />
-                    <StateInput onInput={this.handleChosen} />
+        if (this.isLoading === false) {
+            return (
+                <div style={this.style}>
+                    <div className="film">
+                        <div className="center">
+                        <Weather chosenState={this.state.chosenState} />
+                        <StateInput onInput={this.handleChosen} />
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
-    }
-
-    handleChosen(value) {
-        this.setState({chosenState: value});
+            );
+        } else {
+            return (
+                <div className="lds-ripple"><div></div><div></div></div>
+            );
+        }
     }
 };
