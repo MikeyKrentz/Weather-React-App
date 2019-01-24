@@ -4,17 +4,14 @@ export class StateInput extends React.Component {
 
     state = {selectedState: 'Boise'}
 
-    changeState = this.changeState.bind(this);
-    testEnter = this.testEnter.bind(this);
-
-    testEnter(event) {
+    testEnter = (event) => {
         if(event.charCode === 13) {
             this.props.onInput(this.state.selectedState);
             return;
         }
     }
 
-    changeState(event) {
+    changeState = (event) => {
         this.setState({selectedState: event.target.value});
     }
 

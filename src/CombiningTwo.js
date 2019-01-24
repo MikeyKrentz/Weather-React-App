@@ -26,21 +26,15 @@ export class CombiningTwo extends React.Component {
     }
 
     render() {
-        if (this.isLoading === false) {
-            return (
-                <div style={this.style}>
-                    <div className="film">
-                        <div className="center">
-                        <Weather chosenState={this.state.chosenState} />
-                        <StateInput onInput={this.handleChosen} />
-                        </div>
+        return (
+            <div style={this.style}>
+                <div className="film">
+                    <div className="center">
+                    <Weather chosenState={this.state.chosenState} />
+                    <StateInput onInput={this.handleChosen} />
                     </div>
                 </div>
-            );
-        } else {
-            return (
-                <div className="lds-ripple"><div></div><div></div></div>
-            );
-        }
+            </div>
+        );
     }
 };
